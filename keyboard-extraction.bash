@@ -22,13 +22,15 @@ LIST_OF_KEYBOARDS=$(find * -maxdepth 0 -iname "*.keylayout")
 
 #Make a copy of the keyboard layout file
 
-for i in $LIST_OF_KEYBOARDS;do
+for i in $LIST_OF_KEYBOARDS; do
 	cp "${i}" "${i%%.*}"-copy.xml
 done
 
-LIST_OF_COPPIED_KEYBOARDS=$(find * -maxdepth 0 -iname "*-copy.xml")
+LIST_OF_COPIED_KEYBOARDS=$(find * -maxdepth 0 -iname "*-copy.xml")
 
-sed -i.bak -f standard-replacements.sed $(cat $LIST_OF_KEYBOARDS)
+sed -i.bak -f standard-replacements.sed $LIST_OF_COPIED_KEYBOARDS
 
+
+rm -rf *.bak
 #Use csvfix to read the newly edited '*-copy.xml' file and create comma 
 #spliced file from which joins can be based
