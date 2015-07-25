@@ -15,4 +15,4 @@ We need to copy the file and in the coppied file, replace certain characters wit
 
 The solution I have imagined is that all control characters can be changed to the Unicode character which is a glyph to represent the character. However, to do this I need to be able to read the input text as strings. For example I need to change '`&#x0001;`' to '`␁`'. 
 
-A bash, `for` loop with an embeded `while read -r` might do the trick. I hope to used `sed` with a `/pattern/replacement/` syntax from a list of common characters which are expressed as strings. 
+This was acomplished with a `sed` script.
